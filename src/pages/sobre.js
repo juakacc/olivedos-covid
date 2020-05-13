@@ -1,7 +1,9 @@
 import React from "react"
 import { Typography, Container, Box } from "@material-ui/core"
+
 import Header from "../components/Header"
 import Footer from "../components/Footer"
+import Title from "../components/Title"
 
 export default function Sobre() {
   return (
@@ -9,8 +11,9 @@ export default function Sobre() {
       <Header />
       <Container maxWidth="md">
         <Box mt={10}>
-          <Typography>O que é COVID-19?</Typography>
-          <Typography>
+          <Title title="O que é COVID-19?" />
+
+          <Typography align="justify" gutterBottom paragraph>
             A COVID-19 é uma doença causada pelo coronavírus SARS-CoV-2, que
             apresenta um quadro clínico que varia de infecções assintomáticas a
             quadros respiratórios graves. De acordo com a Organização Mundial de
@@ -20,8 +23,12 @@ export default function Sobre() {
             desses casos aproximadamente 5% podem necessitar de suporte para o
             tratamento de insuficiência respiratória (suporte ventilatório).
           </Typography>
-          <Typography>O que é o coronavírus?</Typography>
-          <Typography>
+
+          <Typography variant="h5" component="h2" gutterBottom>
+            O que é o coronavírus?
+          </Typography>
+
+          <Typography align="justify" gutterBottom paragraph>
             Coronavírus é uma família de vírus que causam infecções
             respiratórias. O novo agente do coronavírus foi descoberto em
             31/12/19 após casos registrados na China. Provoca a doença chamada
@@ -35,7 +42,9 @@ export default function Sobre() {
             coronavírus 229E e NL63 e beta coronavírus OC43, HKU1.
           </Typography>
 
-          <Typography>(Fonte: Ministério da Saúde)</Typography>
+          <Typography align="right" color="textSecondary">
+            (Fonte: Ministério da Saúde)
+          </Typography>
         </Box>
       </Container>
       <Footer />

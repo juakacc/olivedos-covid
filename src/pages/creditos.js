@@ -10,7 +10,7 @@ export default function Sobre() {
       <Container maxWidth="md">
         <Box mt={10}>
           <Typography>Sobre a plataforma</Typography>
-          <Typography>Desenvolvida gratuitamente por Joaquim Aníbal</Typography>
+          <Typography>Desenvolvido gratuitamente por Joaquim Aníbal</Typography>
           {/* <Link></Link> */}
 
           <Typography>Font de gráficos: </Typography>
