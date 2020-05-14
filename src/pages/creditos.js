@@ -1,24 +1,79 @@
 import React from "react"
-import { Typography, Container, Box, Link } from "@material-ui/core"
+import {
+  Typography,
+  Container,
+  Box,
+  Link,
+  Button,
+  Grid,
+  Paper,
+  makeStyles,
+} from "@material-ui/core"
+import GitHubIcon from "@material-ui/icons/GitHub"
+
 import Header from "../components/Header"
 import Footer from "../components/Footer"
+import Title from "../components/Title"
+
+const useStyles = makeStyles(theme => ({
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: "center",
+    color: theme.palette.text.secondary,
+  },
+}))
 
 export default function Sobre() {
+  const classes = useStyles()
+
   return (
     <>
       <Header />
-      <Container maxWidth="md">
-        <Box mt={10}>
-          <Typography>Sobre a plataforma</Typography>
-          <Typography>Desenvolvido gratuitamente por Joaquim Aníbal</Typography>
-          {/* <Link></Link> */}
+      <Box mt={10}>
+        <Grid container spacing={3}>
+          <Grid item xs={12}>
+            <Title title="Olivedos contra a COVID-19" />
+          </Grid>
 
-          <Typography>Font de gráficos: </Typography>
-          <Link href="http://www.freepik.com" color="primary">
-            Designed by Freepik
-          </Link>
-        </Box>
-      </Container>
+          <Grid item xs={12} sm={6}>
+            <Typography>
+              Desenvolvido por Joaquim, buscando ajudar a população de forma
+              simples e direta.
+            </Typography>
+          </Grid>
+
+          <Grid item xs={12} sm={6}>
+            <Button
+              variant="contained"
+              color="primary"
+              startIcon={<GitHubIcon />}
+              href="https://github.com/juakacc/olivedos-covid"
+            >
+              Repositório
+            </Button>
+          </Grid>
+
+          <Grid item xs={12}>
+            <Paper className={classes.paper}>
+              <Typography>
+                Sugestões? É só enviar um e-mail para{" "}
+                <Link href="mailto:juakacc@gmail.com">juakacc@gmail.com</Link>
+              </Typography>
+            </Paper>
+          </Grid>
+
+          <Grid item xs={12}>
+            <Paper className={classes.paper}>
+              <Typography>
+                Fonte para material gráfico:{" "}
+                <Link href="http://www.freepik.com" color="primary">
+                  Designed by Freepik
+                </Link>
+              </Typography>
+            </Paper>
+          </Grid>
+        </Grid>
+      </Box>
       <Footer />
     </>
   )

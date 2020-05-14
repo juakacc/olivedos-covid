@@ -1,11 +1,38 @@
 import React from "react"
-import { Typography, Container, Box } from "@material-ui/core"
+import {
+  Typography,
+  Container,
+  Box,
+  List,
+  ListItem,
+  ListItemText,
+  ListItemAvatar,
+} from "@material-ui/core"
+import LabelIcon from "@material-ui/icons/Label"
 
 import Header from "../components/Header"
 import Footer from "../components/Footer"
 import Title from "../components/Title"
+import Link from "../components/Link"
 
 export default function Sobre() {
+  const _transmissao = [
+    "Toque do aperto de mão;",
+    "Gotículas de saliva;",
+    "Espirro;",
+    "Tosse;",
+    "Catarro;",
+    "Objetos ou superfícies contaminadas, como celulares, mesas, maçanetas, brinquedos, teclados de computador etc.",
+  ]
+
+  const _sintomas = [
+    "Tosse",
+    "Febre",
+    "Coriza",
+    "Dor de garganta",
+    "Dificuldade para respirar",
+  ]
+
   return (
     <>
       <Header />
@@ -40,6 +67,51 @@ export default function Sobre() {
             pequenas mais propensas a se infectarem com o tipo mais comum do
             vírus. Os coronavírus mais comuns que infectam humanos são o alpha
             coronavírus 229E e NL63 e beta coronavírus OC43, HKU1.
+          </Typography>
+
+          <Typography variant="h5" component="h2" gutterBottom>
+            Transmissão
+          </Typography>
+
+          <Typography align="justify" gutterBottom paragraph>
+            A transmissão acontece de uma pessoa doente para outra ou por
+            contato próximo por meio de:
+          </Typography>
+
+          <List>
+            {_transmissao.map(item => (
+              <ListItem key={Math.random()}>
+                <ListItemAvatar>
+                  <LabelIcon />
+                </ListItemAvatar>
+                <ListItemText primary={item} />
+              </ListItem>
+            ))}
+          </List>
+
+          <Typography variant="h5" component="h2" gutterBottom>
+            Sintomas
+          </Typography>
+
+          <Typography align="justify" gutterBottom paragraph>
+            Os sintomas da COVID-19 podem variar de um simples resfriado até uma
+            pneumonia severa. Sendo os sintomas mais comuns:
+          </Typography>
+
+          <List>
+            {_sintomas.map(item => (
+              <ListItem key={Math.random()}>
+                <ListItemAvatar>
+                  <LabelIcon />
+                </ListItemAvatar>
+                <ListItemText primary={item} />
+              </ListItem>
+            ))}
+          </List>
+
+          <Typography>
+            Pode ser interessante:{" "}
+            <Link to="/recomendacoes">O que eu devo fazer?</Link>
           </Typography>
 
           <Typography align="right" color="textSecondary">
