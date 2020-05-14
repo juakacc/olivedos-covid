@@ -1,11 +1,17 @@
 import React from "react"
-import Typography from "@material-ui/core/Typography"
-import MuiLink from "@material-ui/core/Link"
-import { Box, makeStyles } from "@material-ui/core"
+import { Typography, makeStyles, Link } from "@material-ui/core"
+
+import CreateIcon from "@material-ui/icons/Create"
+import FavoriteIcon from "@material-ui/icons/Favorite"
 
 const useStyles = makeStyles(theme => ({
   footer: {
     marginTop: 10,
+    padding: theme.spacing(3, 2),
+    backgroundColor:
+      theme.palette.type === "light"
+        ? theme.palette.grey[200]
+        : theme.palette.grey[800],
   },
 }))
 
@@ -16,10 +22,16 @@ export default function Footer() {
     <footer className={classes.footer}>
       <Typography variant="body2" color="textSecondary" align="center">
         {"Copyright © "}
-        <MuiLink color="inherit" href="http://olivedos.pb.gov.br">
+        <Link color="inherit" href="http://olivedos.pb.gov.br">
           Portal Olivedos
-        </MuiLink>{" "}
+        </Link>{" "}
         {new Date().getFullYear()}
+      </Typography>
+
+      <Typography align="center">
+        <CreateIcon />
+        com
+        <FavoriteIcon />
       </Typography>
     </footer>
   )

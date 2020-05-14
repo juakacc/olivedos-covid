@@ -78,7 +78,7 @@ export default function Sobre() {
             contato próximo por meio de:
           </Typography>
 
-          <List>
+          <List dense>
             {_transmissao.map(item => (
               <ListItem key={Math.random()}>
                 <ListItemAvatar>
@@ -98,7 +98,7 @@ export default function Sobre() {
             pneumonia severa. Sendo os sintomas mais comuns:
           </Typography>
 
-          <List>
+          <List dense>
             {_sintomas.map(item => (
               <ListItem key={Math.random()}>
                 <ListItemAvatar>

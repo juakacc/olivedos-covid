@@ -1,5 +1,5 @@
 module.exports = {
-  plugins: ["gatsby-plugin-material-ui"],
+  plugins: ["gatsby-theme-material-ui", `gatsby-plugin-react-helmet`],
   siteMetadata: {
     title: "Olivedos - Covid-19",
   },

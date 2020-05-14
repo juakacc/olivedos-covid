@@ -58,7 +58,7 @@ export default () => {
   return (
     <>
       <Header />
-      <Box my={4} mt={10}>
+      <Box mt={10} m={1}>
         <Grid container>
           <Grid item xs={12}>
             <Title title="Olivedos contra o Corona vírus" />
