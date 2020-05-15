@@ -12,7 +12,7 @@ const useStyles = makeStyles({
   },
 })
 
-export default function ImgMediaCard({ image }) {
+export default function ImgMediaCard({ image, data }) {
   const classes = useStyles()
 
   return (
@@ -27,19 +27,22 @@ export default function ImgMediaCard({ image }) {
         />
         <CardContent>
           <Typography gutterBottom variant="h4" component="h2">
-            Brasil
+            {data.title}
           </Typography>
           <Typography variant="body2" component="p">
-            Casos:
+            Casos: {data.confirmed}
           </Typography>
           <Typography variant="body2" component="p">
-            Vítimas:
+            Ativos: {data.cases}
           </Typography>
           <Typography variant="body2" component="p">
-            Casos:
+            Vítimas fatais: {data.deaths}
+          </Typography>
+          <Typography variant="body2" component="p">
+            Recuperados: {data.recovered}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            Atualizado em:
+            Atualizado em: {new Date(data.updated_at).toString()}
           </Typography>
         </CardContent>
       </CardActionArea>
