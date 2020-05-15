@@ -54,7 +54,7 @@ export default function Sobre() {
 
           <Grid item xs={12}>
             <Paper className={classes.paper}>
-              <Typography>
+              <Typography color="textPrimary">
                 Sugestões? É só enviar um e-mail para{" "}
                 <Link href="mailto:juakacc@gmail.com">juakacc@gmail.com</Link>
               </Typography>
@@ -63,7 +63,7 @@ export default function Sobre() {
 
           <Grid item xs={12}>
             <Paper className={classes.paper}>
-              <Typography>
+              <Typography color="textPrimary">
                 Fonte para material gráfico:{" "}
                 <Link href="http://www.freepik.com" color="primary">
                   Designed by Freepik

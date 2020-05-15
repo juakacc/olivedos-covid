@@ -6,6 +6,8 @@ import CardContent from "@material-ui/core/CardContent"
 import CardMedia from "@material-ui/core/CardMedia"
 import Typography from "@material-ui/core/Typography"
 
+import moment from "moment"
+
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
@@ -42,7 +44,7 @@ export default function ImgMediaCard({ image, data }) {
             Recuperados: {data.recovered}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            Atualizado em: {new Date(data.updated_at).toString()}
+            Atualizado em: {moment(data.updated_at).format("DD/MM/yyyy")}
           </Typography>
         </CardContent>
       </CardActionArea>

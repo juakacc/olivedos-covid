@@ -20,9 +20,9 @@ export default function Footer() {
 
   return (
     <footer className={classes.footer}>
-      <Typography variant="body2" color="textSecondary" align="center">
+      <Typography variant="body2" color="textPrimary" align="center">
         {"Copyright © "}
-        <Link color="inherit" href="http://olivedos.pb.gov.br">
+        <Link color="textPrimary" href="http://olivedos.pb.gov.br">
           Portal Olivedos
         </Link>{" "}
         {new Date().getFullYear()}

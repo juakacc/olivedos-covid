@@ -14,6 +14,7 @@ import { Helmet } from "react-helmet"
 const useStyles = makeStyles(theme => ({
   appBar: {
     borderBottom: `1px solid ${theme.palette.divider}`,
+    alignItems: "center",
   },
   icon: {
     marginRight: 10,
@@ -26,6 +27,10 @@ const useStyles = makeStyles(theme => ({
   },
   link: {
     margin: theme.spacing(1, 1.5),
+    display: "block",
+    [theme.breakpoints.up("md")]: {
+      display: "inline",
+    },
   },
 }))
 
@@ -43,7 +48,7 @@ export default function Header() {
         <Toolbar className={classes.toolbar}>
           <Avatar src={icon} className={classes.icon} />
           <Link to="/" className={classes.toolbarTitle}>
-            <Typography variant="h6" color="textPrimary" noWrap>
+            <Typography variant="h6" color="textSecondary" noWrap>
               Olivedos contra a COVID-19
             </Typography>
           </Link>
@@ -52,7 +57,7 @@ export default function Header() {
             <Link
               variant="button"
               to="/sobre"
-              color="textPrimary"
+              color="textSecondary"
               className={classes.link}
             >
               Sobre
@@ -60,14 +65,14 @@ export default function Header() {
             <Link
               variant="button"
               to="/recomendacoes"
-              color="textPrimary"
+              color="textSecondary"
               className={classes.link}
             >
               Recomendações
             </Link>
             <Link
               variant="button"
-              color="textPrimary"
+              color="textSecondary"
               to="/numeros"
               className={classes.link}
             >
@@ -75,7 +80,7 @@ export default function Header() {
             </Link>
             <Link
               variant="button"
-              color="textPrimary"
+              color="textSecondary"
               to="/funcionamento"
               className={classes.link}
             >
@@ -83,15 +88,7 @@ export default function Header() {
             </Link>
             <Link
               variant="button"
-              color="textPrimary"
-              to="/contato"
-              className={classes.link}
-            >
-              Contato
-            </Link>
-            <Link
-              variant="button"
-              color="textPrimary"
+              color="textSecondary"
               to="/creditos"
               className={classes.link}
             >
