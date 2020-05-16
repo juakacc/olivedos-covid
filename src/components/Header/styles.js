@@ -10,6 +10,12 @@ const useStyles = makeStyles(theme => ({
       display: "block",
     },
   },
+  toolbarTitleSmall: {
+    display: "block",
+    [theme.breakpoints.up("sm")]: {
+      display: "none",
+    },
+  },
   link: {
     margin: theme.spacing(0, 1),
   },

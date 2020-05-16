@@ -92,6 +92,11 @@ export default function Header() {
                 Olivedos contra a COVID-19
               </Typography>
             </Link>
+            <Link to="/" className={classes.toolbarTitleSmall}>
+              <Typography variant="h6" color="textSecondary" noWrap>
+                Início
+              </Typography>
+            </Link>
 
             <div className={classes.grow} />
 
