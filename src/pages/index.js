@@ -46,10 +46,6 @@ export default () => {
       link: "/funcionamento",
     },
     {
-      title: "Contato",
-      link: "/contato",
-    },
-    {
       title: "Sobre a Plataforma",
       link: "/creditos",
     },
@@ -66,7 +62,7 @@ export default () => {
 
           <Grid item xs={12} sm={3}>
             <Typography>O que deseja saber?</Typography>
-            <List component="nav" aria-label="menu de opções">
+            <List component="nav" aria-label="Menu de opções">
               {_menu.map(item => (
                 <ListItemLink to={item.link} key={item.link}>
                   <ListItemText primary={item.title} />
