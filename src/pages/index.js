@@ -21,7 +21,8 @@ function ListItemLink(props) {
 
 const useStyles = makeStyles(theme => ({
   img: {
-    maxWidth: "80%",
+    maxHeight: "300px",
+    maxWidth: "100%",
   },
 }))
 
@@ -54,8 +55,8 @@ export default () => {
   return (
     <>
       <Header />
-      <Box mt={10} m={1}>
-        <Grid container>
+      <Box m={2}>
+        <Grid container alignContent="center">
           <Grid item xs={12}>
             <Title title="Olivedos contra o Corona vírus" />
           </Grid>
@@ -79,10 +80,6 @@ export default () => {
             />
           </Grid>
         </Grid>
-
-        <Typography>
-          <Link to="/sobre"></Link>
-        </Typography>
       </Box>
 
       <Footer />

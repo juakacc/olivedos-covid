@@ -83,7 +83,7 @@ export default function Header() {
       </Helmet>
 
       <div className={classes.grow}>
-        <AppBar position="fixed" className={classes.appBar}>
+        <AppBar position="sticky" className={classes.appBar}>
           <Toolbar className={classes.toolbar}>
             <Avatar src={icon} className={classes.icon} />
 

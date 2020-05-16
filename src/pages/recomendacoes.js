@@ -64,7 +64,7 @@ export default function Sobre() {
     <>
       <Header />
       <Container maxWidth="md">
-        <Box mt={10}>
+        <Box mt={2}>
           <Title title="Recomendações" />
 
           <Typography>

@@ -28,7 +28,7 @@ export default function Sobre() {
   return (
     <>
       <Header />
-      <Box mt={10} m={2}>
+      <Box m={2}>
         <Grid container spacing={3}>
           <Grid item xs={12}>
             <Title title="Olivedos contra a COVID-19" />

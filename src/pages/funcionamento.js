@@ -73,7 +73,7 @@ export default function Sobre() {
     <>
       <Header />
       <Container maxWidth="md">
-        <Box mt={10}>
+        <Box mt={2}>
           <Title title="Funcionamento durante a pandemia" />
 
           <Typography align="justify" paragraph>
@@ -129,7 +129,7 @@ export default function Sobre() {
               </TableHead>
               <TableBody>
                 {_contatos.map(row => (
-                  <TableRow key={row.name}>
+                  <TableRow key={row.nome}>
                     <TableCell align="center">{row.nome}</TableCell>
                     <TableCell align="center">{row.funcao}</TableCell>
                     <TableCell align="center">{row.numero}</TableCell>

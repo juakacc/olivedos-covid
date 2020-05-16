@@ -37,7 +37,7 @@ export default function Sobre() {
     <>
       <Header />
       <Container maxWidth="md">
-        <Box mt={10}>
+        <Box mt={2}>
           <Title title="O que é COVID-19?" />
 
           <Typography align="justify" gutterBottom paragraph>
