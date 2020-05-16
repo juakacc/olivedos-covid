@@ -21,6 +21,9 @@ const useStyle = makeStyles(theme => ({
   table: {
     minWidth: 600,
   },
+  posTable: {
+    margin: theme.spacing(2, 0),
+  },
 }))
 
 export default function Sobre() {
@@ -113,11 +116,6 @@ export default function Sobre() {
             virtual.
           </Typography>
 
-          <Typography align="justify" paragraph>
-            Cuidemos uns dos outros ficando em casa, é o melhor que podemos
-            fazer no momento. Deus nos proteja.
-          </Typography>
-
           <TableContainer component={Paper}>
             <Table className={classes.table} aria-label="simple table">
               <TableHead>
@@ -138,6 +136,11 @@ export default function Sobre() {
               </TableBody>
             </Table>
           </TableContainer>
+
+          <Typography align="justify" paragraph className={classes.posTable}>
+            Cuidemos uns dos outros ficando em casa, é o melhor que podemos
+            fazer no momento. Deus nos proteja.
+          </Typography>
         </Box>
       </Container>
       <Footer />
