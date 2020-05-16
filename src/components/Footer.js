@@ -18,11 +18,10 @@ export default function Footer() {
   return (
     <footer className={classes.footer}>
       <Typography variant="body2" color="textPrimary" align="center">
-        {"Copyright © "}
+        {"© 2020 "}
         <Link color="textPrimary" href="http://olivedos.pb.gov.br">
-          Portal Olivedos
-        </Link>{" "}
-        {new Date().getFullYear()}
+          Prefeitura Municipal de Olivedos
+        </Link>
       </Typography>
 
       <Typography align="center">

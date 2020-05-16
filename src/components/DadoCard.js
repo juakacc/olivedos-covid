@@ -22,7 +22,7 @@ export default function ImgMediaCard({ image, data }) {
       <CardActionArea>
         <CardMedia
           component="img"
-          alt="Entidade"
+          alt={data.title}
           height="140"
           image={image}
           title="Entidade"
@@ -40,10 +40,10 @@ export default function ImgMediaCard({ image, data }) {
           <Typography variant="body2" component="p">
             Vítimas fatais: {data.deaths}
           </Typography>
-          <Typography variant="body2" component="p">
+          <Typography variant="body2" component="p" paragraph>
             Recuperados: {data.recovered}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
+          <Typography variant="body2" component="p" align="right">
             Atualizado em: {moment(data.updated_at).format("DD/MM/yyyy")}
           </Typography>
         </CardContent>

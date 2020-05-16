@@ -7,6 +7,7 @@ import {
   ListItem,
   ListItemText,
   ListItemAvatar,
+  makeStyles,
 } from "@material-ui/core"
 import LabelIcon from "@material-ui/icons/Label"
 
@@ -15,7 +16,22 @@ import Footer from "../components/Footer"
 import Title from "../components/Title"
 import Link from "../components/Link"
 
+import limpeza from "../../static/limpeza.jpg"
+
+const useStyles = makeStyles(theme => ({
+  image: {
+    display: "block",
+    margin: "auto",
+    maxWidth: "100%",
+    [theme.breakpoints.up("sm")]: {
+      maxWidth: "70%",
+    },
+  },
+}))
+
 export default function Sobre() {
+  const classes = useStyles()
+
   const _transmissao = [
     "Toque do aperto de mão;",
     "Gotículas de saliva;",
@@ -69,6 +85,12 @@ export default function Sobre() {
             coronavírus 229E e NL63 e beta coronavírus OC43, HKU1.
           </Typography>
 
+          <img
+            src={limpeza}
+            alt="Limpeza é essencial"
+            className={classes.image}
+          />
+
           <Typography variant="h5" component="h2" gutterBottom>
             Transmissão
           </Typography>
@@ -114,9 +136,7 @@ export default function Sobre() {
             <Link to="/recomendacoes">O que eu devo fazer?</Link>
           </Typography>
 
-          <Typography align="right" color="textSecondary">
-            (Fonte: Ministério da Saúde)
-          </Typography>
+          <Typography align="right">(Fonte: Ministério da Saúde)</Typography>
         </Box>
       </Container>
       <Footer />

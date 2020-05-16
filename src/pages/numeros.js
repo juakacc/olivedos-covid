@@ -89,13 +89,13 @@ export default function Numeros() {
             <Title title="Números atuais da COVID-19" />
           </Grid>
 
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} sm={6} md={4}>
             <DadoCard image={olivedos} data={oli} />
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} sm={6} md={4}>
             <DadoCard image={paraiba} data={pb} />
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} sm={6} md={4}>
             <DadoCard image={brasil} data={brazil} />
           </Grid>
         </Grid>

@@ -23,8 +23,15 @@ const useStyles = makeStyles(theme => ({
   img: {
     display: "block",
     margin: "auto",
-    maxHeight: "300px",
     maxWidth: "100%",
+    [theme.breakpoints.up("sm")]: {
+      maxWidth: "80%",
+    },
+  },
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
   },
 }))
 
@@ -63,8 +70,10 @@ export default () => {
             <Title title="Olivedos contra o Corona vírus" />
           </Grid>
 
-          <Grid item xs={12} sm={4}>
-            <Typography align="center">O que deseja saber?</Typography>
+          <Grid item xs={12} md={4} className={classes.container}>
+            <Typography align="center" variant="h6">
+              O que deseja saber?
+            </Typography>
             <List component="nav" aria-label="Menu de opções">
               {_menu.map(item => (
                 <ListItemLink to={item.link} key={item.link}>
@@ -74,10 +83,10 @@ export default () => {
             </List>
           </Grid>
 
-          <Grid item xs={12} sm={8}>
+          <Grid item xs={12} md={8}>
             <img
               src={peopleImg}
-              alt="Pessoas com máscara"
+              alt="Pessoas utilizando máscaras"
               className={classes.img}
             />
           </Grid>

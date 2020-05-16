@@ -17,12 +17,22 @@ import Header from "../components/Header"
 import Footer from "../components/Footer"
 import Title from "../components/Title"
 
+import pessoas2 from "../../static/pessoas2.jpg"
+
 const useStyle = makeStyles(theme => ({
   table: {
     minWidth: 600,
   },
   posTable: {
     margin: theme.spacing(2, 0),
+  },
+  image: {
+    display: "block",
+    margin: "auto",
+    maxWidth: "100%",
+    [theme.breakpoints.up("sm")]: {
+      maxWidth: "70%",
+    },
   },
 }))
 
@@ -98,6 +108,12 @@ export default function Sobre() {
             andamento ao atendimento e se for necessário, será marcado o
             atendimento presencial, também em dia e horário marcado.
           </Typography>
+
+          <img
+            src={pessoas2}
+            alt="Pessoas utilizando máscaras"
+            className={classes.image}
+          />
 
           <Typography align="justify" paragraph>
             Os atendimentos presenciais serão destinados às seguintes atividades

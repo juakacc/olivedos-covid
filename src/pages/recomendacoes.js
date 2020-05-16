@@ -9,17 +9,27 @@ import {
   ListItemText,
   makeStyles,
 } from "@material-ui/core"
-
 import LabelIcon from "@material-ui/icons/Label"
 
 import Header from "../components/Header"
 import Footer from "../components/Footer"
 import Title from "../components/Title"
 
+import usomascara from "../../static/usomascara.jpg"
+import distanciamento from "../../static/distanciamento.jpg"
+
 const useStyles = makeStyles(theme => ({
   bold: {
     fontWeight: 700,
     color: "red",
+  },
+  image: {
+    display: "block",
+    margin: "auto",
+    maxWidth: "100%",
+    [theme.breakpoints.up("sm")]: {
+      maxWidth: "70%",
+    },
   },
 }))
 
@@ -71,6 +81,12 @@ export default function Sobre() {
             Recomendações da OMS para evitar a transmissão da COVID-19:
           </Typography>
 
+          <img
+            src={usomascara}
+            alt="Uso correto da máscara"
+            className={classes.image}
+          />
+
           <List dense>
             {_recomendacoes.map(item => (
               <ListItem key={Math.random()}>
@@ -81,6 +97,12 @@ export default function Sobre() {
               </ListItem>
             ))}
           </List>
+
+          <img
+            src={distanciamento}
+            alt="Distanciamento social é essencial"
+            className={classes.image}
+          />
 
           <Typography variant="h5" component="h2" gutterBottom>
             O que fazer em caso do surgimento de alguns sintomas?
@@ -129,9 +151,7 @@ export default function Sobre() {
             ))}
           </List>
 
-          <Typography align="right" color="textSecondary">
-            (Fonte: Ministério da Saúde)
-          </Typography>
+          <Typography align="right">(Fonte: Ministério da Saúde)</Typography>
         </Box>
       </Container>
       <Footer />
