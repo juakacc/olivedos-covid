@@ -10,6 +10,9 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(3, 2),
     backgroundColor: "#B9DED9",
   },
+  icon: {
+    height: 10,
+  },
 }))
 
 export default function Footer() {
@@ -25,9 +28,9 @@ export default function Footer() {
       </Typography>
 
       <Typography align="center">
-        <CreateIcon />
+        <CreateIcon fontSize="inherit" />
         com
-        <FavoriteIcon />
+        <FavoriteIcon fontSize="inherit" />
       </Typography>
     </footer>
   )

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
-import { Typography, Box, Grid } from "@material-ui/core"
+import { Typography, Box, Grid, makeStyles } from "@material-ui/core"
+import { WindMillLoading } from "react-loadingg"
 
 import Header from "../components/Header"
 import Footer from "../components/Footer"
@@ -10,12 +11,25 @@ import olivedos from "../../static/olivedos.png"
 import paraiba from "../../static/paraiba.png"
 import brasil from "../../static/brasil.png"
 
+const styles = makeStyles(theme => ({
+  container: {
+    minHeight: 400,
+  },
+}))
+
 export default function Numeros() {
   const [brazil, setBrazil] = useState({})
   const [pb, setPb] = useState({})
   const [oli, setOli] = useState({})
 
-  useEffect(() => {
+  const [brazil_loaded, set_brazil_loaded] = useState(false)
+  const [pb_loaded, set_pb_loaded] = useState(false)
+  const [oli_loaded, set_oli_loaded] = useState(false)
+
+  const classes = styles()
+
+  const getBrazil = () => {
+    set_brazil_loaded(false)
     fetch("https://covid19-brazil-api.now.sh/api/report/v1/brazil")
       .then(res => res.json())
       .then(res => {
@@ -29,9 +43,16 @@ export default function Numeros() {
           recovered,
           updated_at,
         })
+        set_brazil_loaded(true)
       })
-      .catch(err => console.log(err))
+      .catch(err => {
+        set_brazil_loaded(true)
+        console.log(err)
+      })
+  }
 
+  const getPb = () => {
+    set_pb_loaded(false)
     fetch(
       "https://brasil.io/api/dataset/covid19/caso/data/?is_last=True&city_ibge_code=25"
     )
@@ -47,9 +68,16 @@ export default function Numeros() {
           recovered: "Sem informação",
           updated_at: date,
         })
+        set_pb_loaded(true)
       })
-      .catch(err => console.log(err))
+      .catch(err => {
+        set_pb_loaded(true)
+        console.log(err)
+      })
+  }
 
+  const getOli = () => {
+    set_oli_loaded(false)
     fetch("https://olivedos-covid.herokuapp.com/current")
       .then(res => res.json())
       .then(res => {
@@ -64,8 +92,18 @@ export default function Numeros() {
           discarded,
           monitored,
         })
+        set_oli_loaded(true)
       })
-      .catch(err => console.log(err))
+      .catch(err => {
+        set_oli_loaded(true)
+        console.log(err)
+      })
+  }
+
+  useEffect(() => {
+    getOli()
+    getPb()
+    getBrazil()
   }, [])
 
   return (
@@ -77,15 +115,23 @@ export default function Numeros() {
             <Title title="Números atuais da COVID-19" />
           </Grid>
 
-          <Grid item xs={12} sm={6} md={4}>
-            <DadoCard image={olivedos} data={oli} />
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <DadoCard image={paraiba} data={pb} />
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <DadoCard image={brasil} data={brazil} />
-          </Grid>
+          {!(brazil_loaded && pb_loaded && oli_loaded) ? (
+            <div className={classes.container}>
+              <WindMillLoading size="small" />
+            </div>
+          ) : (
+            <>
+              <Grid item xs={12} sm={6} md={4}>
+                <DadoCard image={olivedos} data={oli} />
+              </Grid>
+              <Grid item xs={12} sm={6} md={4}>
+                <DadoCard image={paraiba} data={pb} />
+              </Grid>
+              <Grid item xs={12} sm={6} md={4}>
+                <DadoCard image={brasil} data={brazil} />
+              </Grid>
+            </>
+          )}
         </Grid>
         <Grid item xs={12}>
           <Box mt={2}>

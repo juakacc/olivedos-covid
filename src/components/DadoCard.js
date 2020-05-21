@@ -1,19 +1,76 @@
 import React from "react"
-import { makeStyles } from "@material-ui/core/styles"
-import Card from "@material-ui/core/Card"
-import CardActionArea from "@material-ui/core/CardActionArea"
-import CardContent from "@material-ui/core/CardContent"
-import CardMedia from "@material-ui/core/CardMedia"
-import Typography from "@material-ui/core/Typography"
+import {
+  Card,
+  CardActionArea,
+  CardContent,
+  CardMedia,
+  Typography,
+  makeStyles,
+} from "@material-ui/core"
 import moment from "moment"
 
 import ItemCard from "../components/ItemCard"
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
     maxWidth: 345,
+    display: "block",
+    margin: "auto",
   },
-})
+  deaths: {
+    padding: theme.spacing(1),
+    margin: theme.spacing(1, 0),
+    borderRadius: 5,
+    backgroundColor: "red",
+    color: "white",
+  },
+  recovered: {
+    padding: theme.spacing(1),
+    margin: theme.spacing(1, 0),
+    borderRadius: 5,
+    backgroundColor: "green",
+    color: "white",
+  },
+  monitored: {
+    padding: theme.spacing(1),
+    margin: theme.spacing(1, 0),
+    borderRadius: 5,
+    backgroundColor: "orange",
+    color: "black",
+  },
+  descarded: {
+    padding: theme.spacing(1),
+    margin: theme.spacing(1, 0),
+    borderRadius: 5,
+    backgroundColor: "green",
+    color: "white",
+  },
+  cases: {
+    padding: theme.spacing(1),
+    margin: theme.spacing(1, 0),
+    borderRadius: 5,
+    backgroundColor: "purple",
+    color: "white",
+  },
+  suspect: {
+    padding: theme.spacing(1),
+    margin: theme.spacing(1, 0),
+    borderRadius: 5,
+    backgroundColor: "brown",
+    color: "white",
+  },
+  sem: {
+    padding: theme.spacing(1),
+    margin: theme.spacing(1, 0),
+    borderRadius: 5,
+    backgroundColor: "gray",
+    color: "white",
+  },
+  date: {
+    color: "gray",
+    margin: theme.spacing(1, 0, 0, 0),
+  },
+}))
 
 export default function ImgMediaCard({ image, data }) {
   const classes = useStyles()
@@ -32,26 +89,41 @@ export default function ImgMediaCard({ image, data }) {
           <Typography gutterBottom variant="h4" component="h2">
             {data.title}
           </Typography>
-          <ItemCard title="Casos" value={data.confirmed} />
-
+          <div className={classes.cases}>
+            <ItemCard title="Casos" value={data.confirmed} />
+          </div>
           {data.title === "Olivedos" ? (
             <>
-              <ItemCard title="Suspeitos" value={data.suspect} />
-              <ItemCard title="Descartados" value={data.discarded} />
-              <ItemCard title="Monitorados" value={data.monitored} />
+              <div className={classes.suspect}>
+                <ItemCard title="Suspeitos" value={data.suspect} />
+              </div>
+              <div className={classes.monitored}>
+                <ItemCard title="Monitorados" value={data.monitored} />
+              </div>
+              <div className={classes.descarded}>
+                <ItemCard title="Descartados" value={data.discarded} />
+              </div>
             </>
           ) : (
             <>
-              <ItemCard title="Ativos" value={data.cases} />
-              <ItemCard title="Recuperados" value={data.recovered} />
+              <div className={classes.sem}>
+                <ItemCard title="Ativos" value={data.cases} />
+              </div>
+              <div className={classes.recovered}>
+                <ItemCard title="Recuperados" value={data.recovered} />
+              </div>
             </>
           )}
-          <ItemCard title="Vítimas fatais" value={data.deaths} />
-          <ItemCard
-            title="Atualizado em"
-            value={moment(data.updated_at).format("DD/MM/yyyy")}
-            align="right"
-          />
+          <div className={classes.deaths}>
+            <ItemCard title="Vítimas fatais" value={data.deaths} />
+          </div>
+          <div className={classes.date}>
+            <ItemCard
+              title="Atualizado em"
+              value={moment(data.updated_at).format("DD/MM/yyyy")}
+              align="right"
+            />
+          </div>
         </CardContent>
       </CardActionArea>
     </Card>
