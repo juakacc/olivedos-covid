@@ -50,32 +50,20 @@ export default function Numeros() {
       })
       .catch(err => console.log(err))
 
-    fetch(
-      "https://brasil.io/api/dataset/covid19/caso/data/?is_last=True&city_ibge_code=2510501"
-    )
+    fetch("https://olivedos-covid.herokuapp.com/current")
       .then(res => res.json())
       .then(res => {
-        if (res.results.length > 0) {
-          const { confirmed, deaths, date } = res.results[0]
+        const { confirmed, deaths, date, suspect, discarded, monitored } = res
 
-          setOli({
-            title: "Olivedos",
-            confirmed,
-            cases: "Sem informação",
-            deaths,
-            recovered: "Sem informação",
-            updated_at: date,
-          })
-        } else {
-          setOli({
-            title: "Olivedos",
-            confirmed: 0,
-            cases: 0,
-            deaths: 0,
-            recovered: 0,
-            updated_at: new Date(),
-          })
-        }
+        setOli({
+          title: "Olivedos",
+          confirmed,
+          deaths,
+          updated_at: date,
+          suspect,
+          discarded,
+          monitored,
+        })
       })
       .catch(err => console.log(err))
   }, [])

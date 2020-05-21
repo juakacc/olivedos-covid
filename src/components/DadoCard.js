@@ -5,8 +5,9 @@ import CardActionArea from "@material-ui/core/CardActionArea"
 import CardContent from "@material-ui/core/CardContent"
 import CardMedia from "@material-ui/core/CardMedia"
 import Typography from "@material-ui/core/Typography"
-
 import moment from "moment"
+
+import ItemCard from "../components/ItemCard"
 
 const useStyles = makeStyles({
   root: {
@@ -31,21 +32,26 @@ export default function ImgMediaCard({ image, data }) {
           <Typography gutterBottom variant="h4" component="h2">
             {data.title}
           </Typography>
-          <Typography variant="body2" component="p">
-            Casos: {data.confirmed}
-          </Typography>
-          <Typography variant="body2" component="p">
-            Ativos: {data.cases}
-          </Typography>
-          <Typography variant="body2" component="p">
-            Vítimas fatais: {data.deaths}
-          </Typography>
-          <Typography variant="body2" component="p" paragraph>
-            Recuperados: {data.recovered}
-          </Typography>
-          <Typography variant="body2" component="p" align="right">
-            Atualizado em: {moment(data.updated_at).format("DD/MM/yyyy")}
-          </Typography>
+          <ItemCard title="Casos" value={data.confirmed} />
+
+          {data.title === "Olivedos" ? (
+            <>
+              <ItemCard title="Suspeitos" value={data.suspect} />
+              <ItemCard title="Descartados" value={data.discarded} />
+              <ItemCard title="Monitorados" value={data.monitored} />
+            </>
+          ) : (
+            <>
+              <ItemCard title="Ativos" value={data.cases} />
+              <ItemCard title="Recuperados" value={data.recovered} />
+            </>
+          )}
+          <ItemCard title="Vítimas fatais" value={data.deaths} />
+          <ItemCard
+            title="Atualizado em"
+            value={moment(data.updated_at).format("DD/MM/yyyy")}
+            align="right"
+          />
         </CardContent>
       </CardActionArea>
     </Card>
