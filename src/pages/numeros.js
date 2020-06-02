@@ -53,26 +53,43 @@ export default function Numeros() {
 
   const getPb = () => {
     set_pb_loaded(false)
-    fetch(
-      "https://brasil.io/api/dataset/covid19/caso/data/?is_last=True&city_ibge_code=25"
-    )
+    fetch("https://olivedos-covid.herokuapp.com/pb/current")
       .then(res => res.json())
       .then(res => {
-        const { confirmed, deaths, date } = res.results[0]
+        const { confirmed, deaths, active, recovered, date } = res
 
         setPb({
           title: "Paraíba",
           confirmed,
-          cases: "Sem informação",
+          cases: active,
           deaths,
-          recovered: "Sem informação",
+          recovered,
           updated_at: date,
         })
         set_pb_loaded(true)
       })
-      .catch(err => {
-        set_pb_loaded(true)
-        console.log(err)
+      .catch(() => {
+        fetch(
+          "https://brasil.io/api/dataset/covid19/caso/data/?is_last=True&city_ibge_code=25"
+        )
+          .then(res => res.json())
+          .then(res => {
+            const { confirmed, deaths, date } = res.results[0]
+
+            setPb({
+              title: "Paraíba",
+              confirmed,
+              cases: "Sem informação",
+              deaths,
+              recovered: "Sem informação",
+              updated_at: date,
+            })
+            set_pb_loaded(true)
+          })
+          .catch(err => {
+            set_pb_loaded(true)
+            console.log(err)
+          })
       })
   }
 

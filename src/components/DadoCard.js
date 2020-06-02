@@ -94,6 +94,10 @@ export default function ImgMediaCard({ image, data }) {
           </div>
           {data.title === "Olivedos" ? (
             <>
+              <Typography variant="body2" align="center">
+                * O número de casos inclui todos os que foram diagnosticados no
+                município.
+              </Typography>
               <div className={classes.suspect}>
                 <ItemCard title="Suspeitos" value={data.suspect} />
               </div>
