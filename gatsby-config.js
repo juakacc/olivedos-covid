@@ -5,12 +5,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Olivedos_covid-19`,
-        short_name: `OliCovid19`,
-        start_url: `/`,
-        background_color: `#f7f0eb`,
-        theme_color: `#a2466c`,
+        name: `Olivedos contra a COVID-19`,
+        short_name: `OliContraCovid19`,
+        start_url: "/",
+        background_color: `#19857b`,
+        theme_color: `#19857b`,
         display: `standalone`,
+        icon: `${__dirname}/src/icons/icon.png`,
       },
     },
     `gatsby-plugin-offline`,
