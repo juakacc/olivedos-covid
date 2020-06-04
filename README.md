@@ -1,12 +1,14 @@
-# :no_entry: Olivedos/PB contra o corona vírus :no_entry:
+# Olivêdos/PB contra o `coronavírus`
 
-Projeto desenvolvido com o intuito de ajudar a população olivedense a respeito da COVID-19. Prestando informações básicas repassadas do ministério da saúde.
+Projeto desenvolvido com o intuito de ajudar a população olivedense a respeito da COVID-19. Prestando informações básicas repassadas pelo ministério da saúde e pela OMS, juntamente com informações divulgadas pela administração municipal.
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/b90a51b0-ab38-4bc5-9c82-8f66eafabdf5/deploy-status)](https://app.netlify.com/sites/olivedos-covid/deploys)
 
 Em produção em: [olivedos.pb.gov.br](http://olivedos.pb.gov.br/covid19)
 
-Desenvolvido utilizando o [Gatsby](https://www.gatsbyjs.org)
+**Disponível agora como PWA**. [Acesse aqui](https://olivedos-covid.netlify.app), instale no seu smartphone e acesse diretamente e offline as informações.
+
+Desenvolvido utilizando [Gatsby](https://www.gatsbyjs.org). Um gerador de sites estáticos que utiliza React <3.
 
 ## Agradecimentos
 
