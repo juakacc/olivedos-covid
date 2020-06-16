@@ -11,7 +11,6 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
     "@material-ui/core": "^4.9.14",
@@ -29,7 +28,8 @@
     "react-helmet": "^6.0.0",
     "react-loadingg": "^1.7.2",
     "react-router": "^5.2.0",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "recharts": "^1.8.5"
   },
   "devDependencies": {
     "prettier": "2.0.5"

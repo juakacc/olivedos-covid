@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { Typography, Box, Grid, makeStyles } from "@material-ui/core"
 import { WindMillLoading } from "react-loadingg"
+import { navigate } from "gatsby"
 
 import Header from "../components/Header"
 import Footer from "../components/Footer"
@@ -132,6 +133,10 @@ export default function Numeros() {
     getBrazil()
   }, [])
 
+  const handleClick = () => {
+    navigate("/grafico")
+  }
+
   return (
     <>
       <Header />
@@ -148,7 +153,9 @@ export default function Numeros() {
           ) : (
             <>
               <Grid item xs={12} sm={6} md={4}>
-                <DadoCard image={olivedos} data={oli} />
+                <div onClick={handleClick}>
+                  <DadoCard image={olivedos} data={oli} />
+                </div>
               </Grid>
               <Grid item xs={12} sm={6} md={4}>
                 <DadoCard image={paraiba} data={pb} />
