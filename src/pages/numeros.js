@@ -98,7 +98,15 @@ export default function Numeros() {
     fetch("https://olivedos-covid.herokuapp.com/current")
       .then(res => res.json())
       .then(res => {
-        const { confirmed, deaths, date, suspect, discarded, monitored } = res
+        const {
+          confirmed,
+          deaths,
+          date,
+          suspect,
+          discarded,
+          monitored,
+          recovered,
+        } = res
 
         setOli({
           title: "Olivedos",
@@ -108,6 +116,7 @@ export default function Numeros() {
           suspect,
           discarded,
           monitored,
+          recovered,
         })
         set_oli_loaded(true)
       })

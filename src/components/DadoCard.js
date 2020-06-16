@@ -42,7 +42,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(1),
     margin: theme.spacing(1, 0),
     borderRadius: 5,
-    backgroundColor: "green",
+    backgroundColor: "blue",
     color: "white",
   },
   cases: {
@@ -113,11 +113,11 @@ export default function ImgMediaCard({ image, data }) {
               <div className={classes.sem}>
                 <ItemCard title="Ativos" value={data.cases} />
               </div>
-              <div className={classes.recovered}>
-                <ItemCard title="Recuperados" value={data.recovered} />
-              </div>
             </>
           )}
+          <div className={classes.recovered}>
+            <ItemCard title="Recuperados" value={data.recovered} />
+          </div>
           <div className={classes.deaths}>
             <ItemCard title="Vítimas fatais" value={data.deaths} />
           </div>
