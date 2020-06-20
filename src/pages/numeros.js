@@ -153,7 +153,12 @@ export default function Numeros() {
           ) : (
             <>
               <Grid item xs={12} sm={6} md={4}>
-                <div onClick={handleClick}>
+                <div
+                  onClick={handleClick}
+                  onKeyDown={handleClick}
+                  role="button"
+                  tabIndex={0}
+                >
                   <DadoCard image={olivedos} data={oli} />
                 </div>
               </Grid>

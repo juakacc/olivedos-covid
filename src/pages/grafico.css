@@ -1,0 +1,25 @@
+@media (max-width: 700px) {
+  .container-chart {
+    width: 900px;
+  }
+  .show-tip-scroll {
+    display: block;
+  }
+}
+
+@media (min-width: 700px) {
+  .container-chart {
+    max-width: 100%;
+  }
+  .show-tip-scroll {
+    display: none;
+  }
+}
+
+.container-chart-scroll {
+  overflow: auto;
+}
+
+.show-tip-scroll p {
+  text-align: center;
+}

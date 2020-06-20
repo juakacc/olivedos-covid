@@ -94,7 +94,7 @@ export default function Header() {
             </Link>
             <Link to="/" className={classes.toolbarTitleSmall}>
               <Typography variant="h6" color="textSecondary" noWrap>
-                Início
+                Olivedos - COVID19
               </Typography>
             </Link>
 

@@ -2,22 +2,20 @@ import React, { useState, useEffect } from "react"
 import moment from "moment"
 import {
   LineChart,
-  CartesianGrid,
-  XAxis,
-  Label,
   YAxis,
-  Line,
+  XAxis,
   LabelList,
-  Brush,
   Tooltip,
   Legend,
   ResponsiveContainer,
+  Line,
 } from "recharts"
+import { Box, Grid } from "@material-ui/core"
 
 import Header from "../components/Header"
-import { Box, Grid } from "@material-ui/core"
 import Title from "../components/Title"
 import Footer from "../components/Footer"
+import "./grafico.css"
 
 export default function Grafico() {
   const [data, setData] = useState([])
@@ -29,7 +27,6 @@ export default function Grafico() {
         setData(res)
       })
       .catch(err => {
-        // set_oli_loaded(true)
         console.log(err)
       })
   }, [])
@@ -44,44 +41,61 @@ export default function Grafico() {
           </Grid>
 
           <Grid item xs={12}>
-            <ResponsiveContainer width="100%" height={400}>
-              <LineChart data={data} margin={{ right: 50 }}>
-                <XAxis
-                  dataKey="date"
-                  tickFormatter={date => moment(date).format("DD/MM")}
-                />
-                <YAxis />
+            <div className="container-chart-scroll">
+              <div className="container-chart">
+                <ResponsiveContainer width="100%" height={300}>
+                  <LineChart data={data} margin={{ right: 50 }}>
+                    <XAxis
+                      dataKey="date"
+                      tickFormatter={date => moment(date).format("DD/MM")}
+                    />
+                    <YAxis />
 
-                <Tooltip
-                  labelFormatter={date => moment(date).format("DD/MM")}
-                />
+                    <Tooltip
+                      labelFormatter={date => moment(date).format("DD/MM")}
+                    />
 
-                <Line
-                  key="recovered"
-                  dataKey="recovered"
-                  name="Recuperados"
-                  type="monotone"
-                  stroke="#0f0"
-                  strokeWidth={5}
-                  strokeOpacity={1}
-                >
-                  <LabelList position="top" offset={10} dataKey="recovered" />
-                </Line>
+                    <Line
+                      key="recovered"
+                      dataKey="recovered"
+                      name="Recuperados"
+                      type="monotone"
+                      stroke="#0f0"
+                      strokeWidth={5}
+                      strokeOpacity={1}
+                    >
+                      <LabelList
+                        position="top"
+                        offset={10}
+                        dataKey="recovered"
+                        formatter={a => (a !== 0 ? a : "")}
+                      />
+                    </Line>
 
-                <Line
-                  key="confirmed"
-                  dataKey="confirmed"
-                  name="Confirmados"
-                  type="monotone"
-                  stroke="#f00"
-                  strokeWidth={5}
-                  strokeOpacity={1}
-                >
-                  <LabelList position="top" offset={10} dataKey="confirmed" />
-                </Line>
-                <Legend />
-              </LineChart>
-            </ResponsiveContainer>
+                    <Line
+                      key="confirmed"
+                      dataKey="confirmed"
+                      name="Confirmados"
+                      type="monotone"
+                      stroke="#f00"
+                      strokeWidth={5}
+                      strokeOpacity={1}
+                    >
+                      <LabelList
+                        position="top"
+                        offset={10}
+                        dataKey="confirmed"
+                        formatter={a => (a !== 0 ? a : "")}
+                      />
+                    </Line>
+                    <Legend />
+                  </LineChart>
+                </ResponsiveContainer>
+              </div>
+            </div>
+            <div className="show-tip-scroll">
+              <p>Arraste para o lado &rArr; &rArr; &rArr;</p>
+            </div>
           </Grid>
         </Grid>
       </Box>
