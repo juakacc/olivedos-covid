@@ -1,7 +1,5 @@
 import React from "react"
 import { Typography, makeStyles, Link } from "@material-ui/core"
-
-import CreateIcon from "@material-ui/icons/Create"
 import FavoriteIcon from "@material-ui/icons/Favorite"
 
 const useStyles = makeStyles(theme => ({
@@ -27,10 +25,9 @@ export default function Footer() {
         </Link>
       </Typography>
 
-      <Typography align="center">
-        <CreateIcon fontSize="inherit" />
-        com
-        <FavoriteIcon fontSize="inherit" />
+      <Typography variant="body2" align="center">
+        Desenvolvido com <FavoriteIcon fontSize="inherit" />. Viva ao software
+        livre
       </Typography>
     </footer>
   )

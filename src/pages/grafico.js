@@ -9,6 +9,7 @@ import {
   Legend,
   ResponsiveContainer,
   Line,
+  Label,
 } from "recharts"
 import { Box, Grid } from "@material-ui/core"
 
@@ -49,7 +50,13 @@ export default function Grafico() {
                       dataKey="date"
                       tickFormatter={date => moment(date).format("DD/MM")}
                     />
-                    <YAxis />
+                    <YAxis>
+                      <Label
+                        position="insideLeft"
+                        value="Número de casos"
+                        angle={-90}
+                      />
+                    </YAxis>
 
                     <Tooltip
                       labelFormatter={date => moment(date).format("DD/MM")}
@@ -88,7 +95,11 @@ export default function Grafico() {
                         formatter={a => (a !== 0 ? a : "")}
                       />
                     </Line>
-                    <Legend />
+                    <Legend
+                      verticalAlign="top"
+                      align="center"
+                      iconType="square"
+                    />
                   </LineChart>
                 </ResponsiveContainer>
               </div>

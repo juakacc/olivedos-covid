@@ -5,6 +5,9 @@
   .show-tip-scroll {
     display: block;
   }
+  .container-chart-scroll {
+    overflow-x: scroll;
+  }
 }
 
 @media (min-width: 700px) {
@@ -14,10 +17,9 @@
   .show-tip-scroll {
     display: none;
   }
-}
-
-.container-chart-scroll {
-  overflow: auto;
+  .container-chart-scroll {
+    overflow: hidden;
+  }
 }
 
 .show-tip-scroll p {
