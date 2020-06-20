@@ -159,14 +159,14 @@ export default function Numeros() {
                   role="button"
                   tabIndex={0}
                 >
-                  <DadoCard image={olivedos} data={oli} />
+                  <DadoCard image={olivedos} data={oli} isOlivedos={true} />
                 </div>
               </Grid>
               <Grid item xs={12} sm={6} md={4}>
-                <DadoCard image={paraiba} data={pb} />
+                <DadoCard image={paraiba} data={pb} isOlivedos={false} />
               </Grid>
               <Grid item xs={12} sm={6} md={4}>
-                <DadoCard image={brasil} data={brazil} />
+                <DadoCard image={brasil} data={brazil} isOlivedos={false} />
               </Grid>
             </>
           )}

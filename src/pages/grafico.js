@@ -11,7 +11,7 @@ import {
   Line,
   Label,
 } from "recharts"
-import { Box, Grid } from "@material-ui/core"
+import { Box, Grid, Typography } from "@material-ui/core"
 
 import Header from "../components/Header"
 import Title from "../components/Title"
@@ -107,6 +107,7 @@ export default function Grafico() {
             <div className="show-tip-scroll">
               <p>Arraste para o lado &rArr; &rArr; &rArr;</p>
             </div>
+            <Typography align="center">(Fonte: Secretaria de Saúde)</Typography>
           </Grid>
         </Grid>
       </Box>
