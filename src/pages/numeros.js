@@ -1,22 +1,16 @@
 import React, { useEffect, useState } from "react"
-import { Typography, Box, Grid, makeStyles } from "@material-ui/core"
-import { WindMillLoading } from "react-loadingg"
+import { Typography, Box, Grid } from "@material-ui/core"
 import { navigate } from "gatsby"
 
 import Header from "../components/Header"
 import Footer from "../components/Footer"
 import Title from "../components/Title"
 import DadoCard from "../components/DadoCard"
+import Spinning from "../components/Spinning"
 
 import olivedos from "../../static/olivedos.png"
 import paraiba from "../../static/paraiba.png"
 import brasil from "../../static/brasil.png"
-
-const styles = makeStyles(theme => ({
-  container: {
-    minHeight: 400,
-  },
-}))
 
 export default function Numeros() {
   const [brazil, setBrazil] = useState({})
@@ -26,8 +20,6 @@ export default function Numeros() {
   const [brazil_loaded, set_brazil_loaded] = useState(false)
   const [pb_loaded, set_pb_loaded] = useState(false)
   const [oli_loaded, set_oli_loaded] = useState(false)
-
-  const classes = styles()
 
   const getBrazil = () => {
     set_brazil_loaded(false)
@@ -145,14 +137,9 @@ export default function Numeros() {
           <Grid item xs={12}>
             <Title title="Números atuais da COVID-19" />
           </Grid>
-
-          {!(brazil_loaded && pb_loaded && oli_loaded) ? (
-            <div className={classes.container}>
-              <WindMillLoading size="small" />
-            </div>
-          ) : (
-            <>
-              <Grid item xs={12} sm={6} md={4}>
+          <>
+            <Grid item xs={12} sm={6} md={4}>
+              {oli_loaded ? (
                 <div
                   onClick={handleClick}
                   onKeyDown={handleClick}
@@ -161,15 +148,27 @@ export default function Numeros() {
                 >
                   <DadoCard image={olivedos} data={oli} isOlivedos={true} />
                 </div>
-              </Grid>
-              <Grid item xs={12} sm={6} md={4}>
+              ) : (
+                <Spinning />
+              )}
+            </Grid>
+
+            <Grid item xs={12} sm={6} md={4}>
+              {pb_loaded ? (
                 <DadoCard image={paraiba} data={pb} isOlivedos={false} />
-              </Grid>
-              <Grid item xs={12} sm={6} md={4}>
+              ) : (
+                <Spinning />
+              )}
+            </Grid>
+
+            <Grid item xs={12} sm={6} md={4}>
+              {brazil_loaded ? (
                 <DadoCard image={brasil} data={brazil} isOlivedos={false} />
-              </Grid>
-            </>
-          )}
+              ) : (
+                <Spinning />
+              )}
+            </Grid>
+          </>
         </Grid>
         <Grid item xs={12}>
           <Box mt={2}>
