@@ -14,12 +14,7 @@ module.exports = {
         icon: `${__dirname}/src/icons/icon.png`,
       },
     },
-    {
-      resolve: `gatsby-plugin-offline`,
-      options: {
-        precachePages: [`/*`],
-      },
-    },
+    `gatsby-plugin-offline`,
   ],
   pathPrefix: `/covid19`,
 }
