@@ -4,6 +4,8 @@ Projeto desenvolvido com o intuito de ajudar a população olivedense a respeito
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/b90a51b0-ab38-4bc5-9c82-8f66eafabdf5/deploy-status)](https://app.netlify.com/sites/olivedos-covid/deploys)
 
+Os dados do município de Olivêdos e do estado da Paraíba são providos pela API: [OlivedosCovid](http://www.olivedos-covid.kinghost.net/)
+
 Em produção: [olivedos.pb.gov.br](http://olivedos.pb.gov.br/covid19)
 
 **Disponível agora como PWA**. [Acesse aqui](https://olivedos-covid.netlify.app), instale no seu smartphone e acesse diretamente e offline as informações.

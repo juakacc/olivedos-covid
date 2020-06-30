@@ -22,7 +22,7 @@ export default function Grafico() {
   const [data, setData] = useState([])
 
   useEffect(() => {
-    fetch("https://olivedos-covid.herokuapp.com/")
+    fetch("http://www.olivedos-covid.kinghost.net/")
       .then(res => res.json())
       .then(res => {
         setData(res)

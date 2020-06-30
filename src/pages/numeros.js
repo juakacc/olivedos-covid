@@ -46,7 +46,7 @@ export default function Numeros() {
 
   const getPb = () => {
     set_pb_loaded(false)
-    fetch("https://olivedos-covid.herokuapp.com/pb/current")
+    fetch("http://www.olivedos-covid.kinghost.net/pb/current")
       .then(res => res.json())
       .then(res => {
         const { confirmed, deaths, active, recovered, date } = res
@@ -88,7 +88,7 @@ export default function Numeros() {
 
   const getOli = () => {
     set_oli_loaded(false)
-    fetch("https://olivedos-covid.herokuapp.com/current")
+    fetch("http://www.olivedos-covid.kinghost.net/current")
       .then(res => res.json())
       .then(res => {
         const {
