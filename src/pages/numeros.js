@@ -11,6 +11,7 @@ import Spinning from "../components/Spinning"
 import olivedos from "../../static/olivedos.png"
 import paraiba from "../../static/paraiba.png"
 import brasil from "../../static/brasil.png"
+import Axios from "axios"
 
 export default function Numeros() {
   const [brazil, setBrazil] = useState({})
@@ -23,8 +24,7 @@ export default function Numeros() {
 
   const getBrazil = () => {
     set_brazil_loaded(false)
-    fetch("https://covid19-brazil-api.now.sh/api/report/v1/brazil")
-      .then(res => res.json())
+    Axios.get("https://covid19-brazil-api.now.sh/api/report/v1/brazil")
       .then(res => {
         const { cases, confirmed, deaths, recovered, updated_at } = res.data
 
@@ -39,17 +39,15 @@ export default function Numeros() {
         set_brazil_loaded(true)
       })
       .catch(err => {
-        set_brazil_loaded(true)
-        console.log(err)
+        set_brazil_loaded(false)
       })
   }
 
   const getPb = () => {
     set_pb_loaded(false)
-    fetch("https://olivedoscovid.xyz/pb/current")
-      .then(res => res.json())
+    Axios.get("https://olivedoscovid.xyz/pb/current")
       .then(res => {
-        const { confirmed, deaths, active, recovered, date } = res
+        const { confirmed, deaths, active, recovered, date } = res.data
 
         setPb({
           title: "Paraíba",
@@ -62,12 +60,12 @@ export default function Numeros() {
         set_pb_loaded(true)
       })
       .catch(() => {
-        fetch(
+        set_pb_loaded(false)
+        Axios.get(
           "https://brasil.io/api/dataset/covid19/caso/data/?is_last=True&city_ibge_code=25"
         )
-          .then(res => res.json())
           .then(res => {
-            const { confirmed, deaths, date } = res.results[0]
+            const { confirmed, deaths, date } = res.data.results[0]
 
             setPb({
               title: "Paraíba",
@@ -79,17 +77,15 @@ export default function Numeros() {
             })
             set_pb_loaded(true)
           })
-          .catch(err => {
-            set_pb_loaded(true)
-            console.log(err)
+          .catch(() => {
+            set_pb_loaded(false)
           })
       })
   }
 
   const getOli = () => {
     set_oli_loaded(false)
-    fetch("https://olivedoscovid.xyz/current")
-      .then(res => res.json())
+    Axios.get("https://olivedoscovid.xyz/current")
       .then(res => {
         const {
           confirmed,
@@ -99,7 +95,7 @@ export default function Numeros() {
           discarded,
           monitored,
           recovered,
-        } = res
+        } = res.data
 
         setOli({
           title: "Olivedos",
@@ -113,9 +109,8 @@ export default function Numeros() {
         })
         set_oli_loaded(true)
       })
-      .catch(err => {
-        set_oli_loaded(true)
-        console.log(err)
+      .catch(() => {
+        set_oli_loaded(false)
       })
   }
 
