@@ -24,27 +24,45 @@ export default function Numeros() {
 
   const getBrazil = () => {
     set_brazil_loaded(false)
-    Axios.get("https://covid19-brazil-api.now.sh/api/report/v1/brazil")
+
+    Axios.get("https://disease.sh/v3/covid-19/countries/brazil")
       .then(res => {
-        const { cases, confirmed, deaths, recovered, updated_at } = res.data
+        const { cases, active, deaths, recovered, updated } = res.data
 
         setBrazil({
           title: "Brasil",
-          confirmed,
-          cases,
+          confirmed: cases,
+          cases: active,
           deaths,
           recovered,
-          updated_at,
+          updated_at: updated,
         })
         set_brazil_loaded(true)
       })
-      .catch(err => {
-        set_brazil_loaded(false)
+      .catch(() => {
+        Axios.get("https://covid19-brazil-api.now.sh/api/report/v1/brazil")
+          .then(res => {
+            const { cases, confirmed, deaths, recovered, updated_at } = res.data
+
+            setBrazil({
+              title: "Brasil",
+              confirmed,
+              cases,
+              deaths,
+              recovered,
+              updated_at,
+            })
+            set_brazil_loaded(true)
+          })
+          .catch(() => {
+            set_brazil_loaded(false)
+          })
       })
   }
 
   const getPb = () => {
     set_pb_loaded(false)
+
     Axios.get("https://olivedoscovid.xyz/pb/current")
       .then(res => {
         const { confirmed, deaths, active, recovered, date } = res.data
@@ -60,7 +78,6 @@ export default function Numeros() {
         set_pb_loaded(true)
       })
       .catch(() => {
-        set_pb_loaded(false)
         Axios.get(
           "https://brasil.io/api/dataset/covid19/caso/data/?is_last=True&city_ibge_code=25"
         )
@@ -85,6 +102,7 @@ export default function Numeros() {
 
   const getOli = () => {
     set_oli_loaded(false)
+
     Axios.get("https://olivedoscovid.xyz/current")
       .then(res => {
         const {
