@@ -4,7 +4,6 @@ import {
   LineChart,
   YAxis,
   XAxis,
-  LabelList,
   Tooltip,
   Legend,
   ResponsiveContainer,
@@ -22,7 +21,7 @@ export default function Grafico() {
   const [data, setData] = useState([])
 
   useEffect(() => {
-    fetch("https://olivedoscovid.xyz/")
+    fetch("https://olivedoscovid.xyz?page=0&limit=500")
       .then(res => res.json())
       .then(res => {
         setData(res)
@@ -66,35 +65,35 @@ export default function Grafico() {
                       key="recovered"
                       dataKey="recovered"
                       name="Recuperados"
-                      type="monotone"
                       stroke="#0f0"
+                      type="monotone"
+                      dot={false}
                       strokeWidth={5}
                       strokeOpacity={1}
-                    >
-                      <LabelList
-                        position="top"
-                        offset={10}
-                        dataKey="recovered"
-                        formatter={a => (a !== 0 ? a : "")}
-                      />
-                    </Line>
+                    />
 
                     <Line
                       key="confirmed"
                       dataKey="confirmed"
                       name="Confirmados"
-                      type="monotone"
                       stroke="#f00"
+                      type="monotone"
+                      dot={false}
                       strokeWidth={5}
                       strokeOpacity={1}
-                    >
-                      <LabelList
-                        position="top"
-                        offset={10}
-                        dataKey="confirmed"
-                        formatter={a => (a !== 0 ? a : "")}
-                      />
-                    </Line>
+                    />
+
+                    <Line
+                      key="deaths"
+                      dataKey="deaths"
+                      name="Vítimas fatais"
+                      stroke="#8e44ad"
+                      type="monotone"
+                      dot={false}
+                      strokeWidth={5}
+                      strokeOpacity={1}
+                    />
+
                     <Legend
                       verticalAlign="top"
                       align="center"
